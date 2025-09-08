@@ -5,6 +5,10 @@ sap.ui.define([
 
     return Controller.extend("universitystudentlifecycle.controller.student_lifecycle", {
         onInit() {
+        },
+
+        onNavigateToProfile: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteStudentProfile");
         }
     });
 });

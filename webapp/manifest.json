@@ -90,7 +90,13 @@
         {
           "pattern": "register",
           "name": "register",
-          "target": "TargetRegister"
+          "target": ["TargetRegister"]
+        },{
+          "name": "RouteStudentProfile",
+          "pattern": "profile",
+          "target": [
+            "TargetStudentProfile"
+          ]
         }
       ],
       "targets": {
@@ -105,6 +111,10 @@
         "TargetRegister": {
           "id": "register",
           "name": "Register"
+        },
+        "TargetStudentProfile": {
+          "id": "StudentProfile",
+          "name": "StudentProfile"
         }
       }
     },

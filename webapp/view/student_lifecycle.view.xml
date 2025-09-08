@@ -1,6 +1,21 @@
 <mvc:View controllerName="universitystudentlifecycle.controller.student_lifecycle"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
+        <headerContent>
+            <Button text="Student Profile" 
+                    type="Emphasized" 
+                    press="onNavigateToProfile" 
+                    icon="sap-icon://user"/>
+        </headerContent>
+        <content>
+            <l:VerticalLayout width="100%" class="sapUiMediumMargin">
+                <Title text="Student Lifecycle Management" 
+                       titleStyle="H2" 
+                       class="sapUiMediumMarginBottom"/>
+                <Text text="Welcome to the Student Lifecycle Management application. Click the 'Student Profile' button to view and manage your profile information."/>
+            </l:VerticalLayout>
+        </content>
     </Page>
 </mvc:View>

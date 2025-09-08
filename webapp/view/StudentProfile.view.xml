@@ -1,0 +1,277 @@
+<mvc:View
+    controllerName="universitystudentlifecycle.controller.StudentProfile"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:form="sap.ui.layout.form"
+    displayBlock="true">
+    
+    <Page id="studentProfilePage" 
+          title="Student Profile" 
+          showNavButton="true" 
+          navButtonPress="onNavBack"
+          enableScrolling="true">
+        
+        <headerContent>
+            <Button id="editButton" 
+                    text="{= ${viewModel>/editMode} ? 'Cancel' : 'Edit'}" 
+                    type="{= ${viewModel>/editMode} ? 'Reject' : 'Emphasized'}"
+                    press="onToggleEditMode" 
+                    visible="{= !${viewModel>/isSaving}}"/>
+            <Button id="saveButton" 
+                    text="Save" 
+                    type="Accept" 
+                    press="onSaveProfile" 
+                    visible="{viewModel>/editMode}"
+                    enabled="{= !${viewModel>/isSaving}}"/>
+        </headerContent>
+        
+        <content>
+            <ScrollContainer height="100%" width="100%" vertical="true" horizontal="false">
+                <l:Grid defaultSpan="XL6 L6 M12 S12" class="sapUiSmallMargin" hSpacing="1" vSpacing="1">
+                    
+                    <!-- Profile photo moved into Personal Information section -->
+                    
+                    <!-- Personal Information Section -->
+                    <Panel id="personalInfoSection" 
+                           headerText="Personal Information" 
+                           class="sapUiNoContentPadding">
+                        <content>
+                            <form:SimpleForm id="personalInfoForm" 
+                                            editable="{viewModel>/editMode}" 
+                                            layout="ResponsiveGridLayout" 
+                                            labelSpanXL="4" 
+                                            labelSpanL="4" 
+                                            labelSpanM="4" 
+                                            labelSpanS="12" 
+                                            adjustLabelSpan="false" 
+                                            emptySpanXL="0" 
+                                            emptySpanL="0" 
+                                            emptySpanM="0" 
+                                            emptySpanS="0" 
+                                            columnsXL="2" 
+                                            columnsL="2" 
+                                            columnsM="2" 
+                                            singleContainerFullSize="false">
+                                
+                                <form:content>
+                                <VBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBottom" width="100%">
+                                        <Avatar id="profileAvatar" 
+                                               src="{studentProfile>/studentProfile/personalInfo/profilePhoto}"
+                                               displaySize="L" 
+                                               class="sapUiMediumMarginBottom studentProfileAvatar"
+                                               press="onProfilePhotoPress"
+                                               customDisplaySize="120px"
+                                               customFontSize="3rem"
+                                               />
+                                </VBox>
+                                        <HBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBottom" width="100%">
+                                            <Button id="uploadPhotoButton" 
+                                                    text="Upload Photo" 
+                                                    press="onUploadPhoto" 
+                                                    visible="{viewModel>/editMode}"
+                                                    icon="sap-icon://upload"
+                                                    class="sapUiTinyMarginEnd"/>
+                                            
+                                            <Button id="removePhotoButton" 
+                                                    text="Remove" 
+                                                    press="onRemovePhoto" 
+                                                    visible="{= ${viewModel>/editMode} &amp;&amp; ${studentProfile>/studentProfile/personalInfo/profilePhoto} !== ''}"
+                                                    type="Reject"
+                                                    icon="sap-icon://delete"/>
+                                        </HBox>
+                                        <u:FileUploader id="fileUploader" 
+                                                       name="profilePhoto" 
+                                                       uploadUrl="upload/" 
+                                                       tooltip="Upload your profile photo" 
+                                                       uploadComplete="onUploadComplete" 
+                                                       style="Emphasized" 
+                                                       fileType="jpg,jpeg,png" 
+                                                       placeholder="Choose a profile photo..." 
+                                                       visible="false"
+                                                       class="sapUiTinyMarginTop"/>
+                                    <Label text="First Name" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/personalInfo/firstName}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Last Name" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/personalInfo/lastName}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Date of Birth" required="true"/>
+                                    <DatePicker value="{studentProfile>/studentProfile/personalInfo/dateOfBirth}" 
+                                               enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Gender" required="true"/>
+                                    <Select selectedKey="{studentProfile>/studentProfile/personalInfo/gender}" 
+                                            enabled="{viewModel>/editMode}">
+                                        <core:Item key="Male" text="Male"/>
+                                        <core:Item key="Female" text="Female"/>
+                                        <core:Item key="Other" text="Other"/>
+                                    </Select>
+                                    
+                                    <Label text="Enrollment ID"/>
+                                    <Text text="{studentProfile>/studentProfile/personalInfo/enrollmentId}"/>
+                                    
+                                    <Label text="Academic Year"/>
+                                    <Text text="{studentProfile>/studentProfile/personalInfo/academicYear}"/>
+                                    
+                                    <Label text="Program"/>
+                                    <Text text="{studentProfile>/studentProfile/personalInfo/program}"/>
+                                    
+                                    <Label text="Semester"/>
+                                    <Text text="{studentProfile>/studentProfile/personalInfo/semester}"/>
+                                    
+                                    <Label text="GPA"/>
+                                    <Text text="{studentProfile>/studentProfile/personalInfo/gpa}"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </content>
+                    </Panel>
+                    
+                    <!-- Contact Information Section -->
+                    <Panel id="contactInfoSection" 
+                           headerText="Contact Information" 
+                           class="sapUiNoContentPadding">
+                        <content>
+                            <form:SimpleForm id="contactInfoForm" 
+                                            editable="{viewModel>/editMode}" 
+                                            layout="ResponsiveGridLayout" 
+                                            labelSpanXL="4" 
+                                            labelSpanL="4" 
+                                            labelSpanM="4" 
+                                            labelSpanS="12" 
+                                            adjustLabelSpan="false" 
+                                            emptySpanXL="0" 
+                                            emptySpanL="0" 
+                                            emptySpanM="0" 
+                                            emptySpanS="0" 
+                                            columnsXL="2" 
+                                            columnsL="2" 
+                                            columnsM="2" 
+                                            singleContainerFullSize="false">
+                                
+                                <form:content>
+                                    <Label text="Email" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/email}" 
+                                           type="Email"
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Phone Number" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/phoneNumber}" 
+                                           type="Tel"
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Street Address"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/address/street}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="City"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/address/city}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="State/Province"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/address/state}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="ZIP/Postal Code"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/address/zipCode}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Country"/>
+                                    <Input value="{studentProfile>/studentProfile/contactInfo/address/country}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </content>
+                    </Panel>
+                    
+                    <!-- Emergency Contact Section -->
+                    <Panel id="emergencyContactSection" 
+                           headerText="Emergency Contact" 
+                           class="sapUiNoContentPadding">
+                        <content>
+                            <form:SimpleForm id="emergencyContactForm" 
+                                            editable="{viewModel>/editMode}" 
+                                            layout="ResponsiveGridLayout" 
+                                            labelSpanXL="4" 
+                                            labelSpanL="4" 
+                                            labelSpanM="4" 
+                                            labelSpanS="12" 
+                                            adjustLabelSpan="false" 
+                                            emptySpanXL="0" 
+                                            emptySpanL="0" 
+                                            emptySpanM="0" 
+                                            emptySpanS="0" 
+                                            columnsXL="2" 
+                                            columnsL="2" 
+                                            columnsM="2" 
+                                            singleContainerFullSize="false">
+                                
+                                <form:content>
+                                    <Label text="Contact Name" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/emergencyContact/name}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Relation" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/emergencyContact/relation}" 
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Phone Number" required="true"/>
+                                    <Input value="{studentProfile>/studentProfile/emergencyContact/phoneNumber}" 
+                                           type="Tel"
+                                           enabled="{viewModel>/editMode}"/>
+                                    
+                                    <Label text="Email"/>
+                                    <Input value="{studentProfile>/studentProfile/emergencyContact/email}" 
+                                           type="Email"
+                                           enabled="{viewModel>/editMode}"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </content>
+                    </Panel>
+                    
+                </l:Grid>
+            </ScrollContainer>
+        </content>
+        
+        <!-- Busy Dialog -->
+        <Dialog id="busyDialog" 
+                title="Saving Profile" 
+                type="Message" 
+                state="Information" 
+                visible="{viewModel>/isSaving}">
+            <content>
+                <BusyIndicator size="2rem"/>
+                <Text text="Please wait while we save your profile information..."/>
+            </content>
+        </Dialog>
+        
+        <!-- Image Preview Dialog -->
+        <Dialog id="imagePreviewDialog" 
+                title="Profile Photo Preview" 
+                type="Standard"
+                contentWidth="750px"
+                contentHeight="550px"
+                resizable="true"
+                draggable="true">
+            <content id="imagePreviewDialogContent">
+                <VBox alignItems="Center" justifyContent="Center" class="sapUiMediumMargin">
+                    <Image id="previewImage" 
+                           src="" 
+                           width="80%" 
+                           height="80%"
+                           class="sapUiTinyMarginBottom"/>
+                </VBox>
+            </content>
+            <buttons>
+                <Button text="Close" 
+                        press="onCloseImagePreview" 
+                        type="Emphasized"/>
+            </buttons>
+        </Dialog>
+        
+    </Page>
+</mvc:View>
