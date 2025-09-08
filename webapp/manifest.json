@@ -79,12 +79,23 @@
           "target": [
             "Targetstudent_lifecycle"
           ]
+        },
+        {
+          "name": "RouteStudentProfile",
+          "pattern": "profile",
+          "target": [
+            "TargetStudentProfile"
+          ]
         }
       ],
       "targets": {
         "Targetstudent_lifecycle": {
           "id": "student_lifecycle",
           "name": "student_lifecycle"
+        },
+        "TargetStudentProfile": {
+          "id": "StudentProfile",
+          "name": "StudentProfile"
         }
       }
     },
