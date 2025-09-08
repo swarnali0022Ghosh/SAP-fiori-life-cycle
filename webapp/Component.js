@@ -19,6 +19,9 @@ sap.ui.define([
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
 
+            // set the student profile model
+            this.setModel(models.createStudentProfileModel(), "studentProfile");
+
             // enable routing
             this.getRouter().initialize();
         }
