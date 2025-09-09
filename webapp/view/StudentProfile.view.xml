@@ -29,15 +29,12 @@
         </headerContent>
         
         <content>
-            <ScrollContainer height="100%" width="100%" vertical="true" horizontal="false">
-                <l:Grid defaultSpan="XL6 L6 M12 S12" class="sapUiSmallMargin" hSpacing="1" vSpacing="1">
-                    
-                    <!-- Profile photo moved into Personal Information section -->
-                    
+            <ScrollContainer height="100%" width="100%" vertical="true" horizontal="false" class="sapUiResponsiveContentPadding">
+                <l:Grid defaultSpan="XL6 L6 M12 S12" class="sapUiResponsiveMargin" hSpacing="1" vSpacing="1">
                     <!-- Personal Information Section -->
                     <Panel id="personalInfoSection" 
                            headerText="Personal Information" 
-                           class="sapUiNoContentPadding">
+                           class="sapUiResponsiveMargin">
                         <content>
                             <form:SimpleForm id="personalInfoForm" 
                                             editable="{viewModel>/editMode}" 
@@ -56,31 +53,32 @@
                                             columnsM="2" 
                                             singleContainerFullSize="false">
                                 
-                                <form:content>
-                                <VBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBottom" width="100%">
+                                <form:content width="100%">
+                                <VBox justifyContent="Center" alignItems="Center">
                                         <Avatar id="profileAvatar" 
                                                src="{studentProfile>/studentProfile/personalInfo/profilePhoto}"
                                                displaySize="L" 
-                                               class="sapUiMediumMarginBottom studentProfileAvatar"
+                                               class="sapUiResponsiveMargin studentProfileAvatar"
                                                press="onProfilePhotoPress"
                                                customDisplaySize="120px"
                                                customFontSize="3rem"
                                                />
                                 </VBox>
-                                        <HBox justifyContent="Center" alignItems="Center" class="sapUiTinyMarginBottom" width="100%">
+                                        <HBox justifyContent="Center" alignItems="Center" width="100%">
                                             <Button id="uploadPhotoButton" 
                                                     text="Upload Photo" 
                                                     press="onUploadPhoto" 
                                                     visible="{viewModel>/editMode}"
                                                     icon="sap-icon://upload"
-                                                    class="sapUiTinyMarginEnd"/>
+                                                    class="sapUiResponsiveMargin"/>
                                             
                                             <Button id="removePhotoButton" 
                                                     text="Remove" 
                                                     press="onRemovePhoto" 
                                                     visible="{= ${viewModel>/editMode} &amp;&amp; ${studentProfile>/studentProfile/personalInfo/profilePhoto} !== ''}"
                                                     type="Reject"
-                                                    icon="sap-icon://delete"/>
+                                                    icon="sap-icon://delete"
+                                                    class="sapUiResponsiveMargin"/>
                                         </HBox>
                                         <u:FileUploader id="fileUploader" 
                                                        name="profilePhoto" 
@@ -91,7 +89,7 @@
                                                        fileType="jpg,jpeg,png" 
                                                        placeholder="Choose a profile photo..." 
                                                        visible="false"
-                                                       class="sapUiTinyMarginTop"/>
+                                                       class="sapUiResponsiveMargin"/>
                                     <Label text="First Name" required="true"/>
                                     <Input value="{studentProfile>/studentProfile/personalInfo/firstName}" 
                                            enabled="{viewModel>/editMode}"/>
@@ -134,7 +132,7 @@
                     <!-- Contact Information Section -->
                     <Panel id="contactInfoSection" 
                            headerText="Contact Information" 
-                           class="sapUiNoContentPadding">
+                           class="sapUiResponsiveMargin">
                         <content>
                             <form:SimpleForm id="contactInfoForm" 
                                             editable="{viewModel>/editMode}" 
@@ -191,7 +189,7 @@
                     <!-- Emergency Contact Section -->
                     <Panel id="emergencyContactSection" 
                            headerText="Emergency Contact" 
-                           class="sapUiNoContentPadding">
+                           class="sapUiResponsiveMargin">
                         <content>
                             <form:SimpleForm id="emergencyContactForm" 
                                             editable="{viewModel>/editMode}" 
@@ -258,12 +256,12 @@
                 resizable="true"
                 draggable="true">
             <content id="imagePreviewDialogContent">
-                <VBox alignItems="Center" justifyContent="Center" class="sapUiMediumMargin">
+                <VBox alignItems="Center" justifyContent="Center" class="sapUiResponsiveContentPadding">
                     <Image id="previewImage" 
                            src="" 
                            width="80%" 
                            height="80%"
-                           class="sapUiTinyMarginBottom"/>
+                           class="sapUiResponsiveMargin"/>
                 </VBox>
             </content>
             <buttons>

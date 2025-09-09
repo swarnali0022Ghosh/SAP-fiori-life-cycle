@@ -1,384 +1,48 @@
-/* Enter your custom styles here */
+/* Only custom styles that are not available in SAP UI5 */
 
-/* Student Profile Styles */
+/* Student Profile Avatar - Custom styling for profile photo */
 .studentProfileAvatar {
-    border: 3px solid #007cc6;
+    border: 3px solid var(--sapUiHighlight);
     border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 124, 198, 0.2);
 }
 
 .studentProfileAvatar:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 124, 198, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 124, 198, 0.4);
 }
 
-.profileSection {
-    margin-bottom: 1rem;
+/* Photo upload area - Custom styling for drag and drop */
+.photoUploadArea {
+    border: 2px dashed var(--sapUiHighlight);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--sapUiBaseBG);
+    transition: all 0.3s ease;
 }
 
-.profileSectionHeader {
-    background-color: #f5f5f5;
-    padding: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-    border-radius: 8px 8px 0 0;
+.photoUploadArea:hover {
+    border-color: var(--sapUiHighlight);
+    background-color: var(--sapUiSelected);
 }
 
-.profileSectionContent {
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 0 0 8px 8px;
-}
-
-/* Panel styling for better appearance */
-.sapMPanel {
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sapMPanelHdr {
-    background-color: #f5f5f5 !important;
-    border-bottom: 1px solid #e0e0e0;
-    border-radius: 8px 8px 0 0;
-}
-
-.sapMPanelContent {
-    background-color: white;
-    border-radius: 0 0 8px 8px;
-    padding: 1rem;
-}
-
-/* Profile photo section - remove horizontal scrollbar */
-.sapMVBox {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-}
-
-/* Remove horizontal scrollbar from ScrollContainer */
-.sapMScrollCont {
-    overflow-x: hidden !important;
-}
-
-/* Ensure proper text display */
-.sapMText {
-    color: #666;
-    font-weight: 500;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-/* Form field styling */
-.sapMInputBase {
-    margin-bottom: 0.5rem;
-}
-
-.sapMInputBaseInner {
-    border-radius: 4px;
-}
-
-/* Button styling */
-.sapMBtn {
-    margin: 0.25rem;
-}
-
-/* Loading state */
+/* Loading state - Custom class for busy state */
 .busyState {
     opacity: 0.6;
     pointer-events: none;
 }
 
-/* Photo upload area */
-.photoUploadArea {
-    border: 2px dashed #007cc6;
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
-}
-
-.photoUploadArea:hover {
-    border-color: #005a9e;
-    background-color: #e3f2fd;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .profileSectionContent {
-        padding: 1rem;
-    }
-    
-    .studentProfileAvatar {
-        width: 80px !important;
-        height: 80px !important;
-    }
-    
-    .sapMPanelContent {
-        padding: 0.5rem;
-    }
-    
-    .sapMText {
-        font-size: 0.875rem;
-    }
-}
-
-/* Ensure proper grid layout */
-.sapUiGrid {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-.sapUiGridCell {
-    padding: 0.5rem;
-}
-
-/* Fix for form layout */
-.sapUiForm {
-    width: 100% !important;
-}
-
-.sapUiFormResGrid {
-    width: 100% !important;
-}
-
-/* Ensure proper data binding display */
-.sapMInputBaseInner {
-    color: #333 !important;
-}
-
-.sapMInputBaseInner:disabled {
-    color: #666 !important;
-    background-color: #f5f5f5 !important;
-}
-
-/* Additional fixes for data binding and form display */
-.sapMInputBaseInner:not(:disabled) {
-    color: #333 !important;
-    background-color: white !important;
-}
-
-.sapMInputBaseInner:focus {
-    border-color: #007cc6 !important;
-    box-shadow: 0 0 0 2px rgba(0, 124, 198, 0.2) !important;
-}
-
-/* Ensure form labels are visible */
-.sapMLabel {
-    color: #333 !important;
-    font-weight: 500 !important;
-}
-
-.sapMLabel.sapMLabelRequired::after {
-    color: #d32f2f !important;
-}
-
-/* Fix for SimpleForm layout */
-.sapUiFormResGridCont {
-    width: 100% !important;
-}
-
-.sapUiFormResGridLbl {
-    padding-right: 0.5rem !important;
-}
-
-.sapUiFormResGridEd {
-    padding-left: 0.5rem !important;
-}
-
-/* Ensure proper spacing in forms */
-.sapUiFormResGridLbl.sapUiFormResGridLblTop {
-    padding-bottom: 0.25rem !important;
-}
-
-.sapUiFormResGridEd.sapUiFormResGridEdTop {
-    padding-top: 0.25rem !important;
-}
-
-/* Fix for DatePicker display */
-.sapMDatePicker {
-    width: 100% !important;
-}
-
-.sapMDatePicker .sapMInputBaseInner {
-    width: 100% !important;
-}
-
-/* Fix for Select display */
-.sapMSlt {
-    width: 100% !important;
-}
-
-.sapMSlt .sapMSltInner {
-    width: 100% !important;
-}
-
-/* Ensure proper text wrapping */
-.sapMTextMaxLine {
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-}
-
-/* Fix for Avatar display */
-.sapMAvatar {
-    display: inline-block !important;
-}
-
-/* Ensure proper button states */
-.sapMBtnInner {
-    border-radius: 4px !important;
-}
-
-.sapMBtnInner:focus {
-    outline: 2px solid #007cc6 !important;
-    outline-offset: 2px !important;
-}
-
-/* Image Preview Dialog Content */
-#imagePreviewDialog {
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#imagePreviewDialogContent{
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
-/* Profile Photo Section Improvements */
-.profilePhotoSection {
-    text-align: center;
-    padding: 1.5rem;
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.profilePhotoSection .sapMPanelContent {
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profilePhotoSection .sapMVBox {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-}
-
-.profilePhotoSection .sapMAvatar {
-    margin-bottom: 1rem;
-    border: 3px solid #007cc6;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 124, 198, 0.2);
-    max-width: 120px;
-    max-height: 120px;
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-}
-
-.profilePhotoSection .sapMAvatar:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 124, 198, 0.4);
-}
-
-.profilePhotoSection .sapMHBox {
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.profilePhotoSection .sapMBtn {
-    min-width: 120px;
-    margin: 0.25rem;
-    flex-shrink: 0;
-}
-
-/* File Uploader styling */
-.sapUiUnifiedFileUploader {
-    margin-top: 1rem;
-    width: 100%;
-    max-width: 300px;
-}
-
-.sapUiUnifiedFileUploader .sapMBtn {
-    width: 100%;
-}
-
-/* Image Preview Dialog */
-.sapMDialog {
-    border-radius: 8px;
-}
-
-.sapMDialog .sapMDialogContent {
-    padding: 1rem;
-}
-
-.sapMDialog .sapMImage {
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive improvements for profile photo */
+/* Responsive adjustments for profile photo */
 @media (max-width: 600px) {
-    .profilePhotoSection {
-        padding: 1rem;
-    }
-    
-    .profilePhotoSection .sapMAvatar {
+    .studentProfileAvatar {
         width: 100px !important;
         height: 100px !important;
     }
     
-    .profilePhotoSection .sapMHBox {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .profilePhotoSection .sapMBtn {
-        width: 100%;
-        max-width: 200px;
-        margin: 0.25rem 0;
-    }
-    
-    .sapUiUnifiedFileUploader {
-        max-width: 100%;
-    }
-}
-
-/* Ensure proper dialog sizing on mobile */
-@media (max-width: 480px) {
-    .sapMDialog {
-        width: 90% !important;
-        height: 90% !important;
-    }
-    
-    .sapMDialog .sapMImage {
-        width: 100% !important;
-        height: auto !important;
+    .photoUploadArea {
+        padding: 1rem;
     }
 }
