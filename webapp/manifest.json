@@ -38,7 +38,8 @@
       "minUI5Version": "1.139.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.uxap": {}
       }
     },
     "contentDensities": {
@@ -69,18 +70,28 @@
         "type": "View",
         "viewType": "XML",
         "path": "universitystudentlifecycle.view",
-        "async": true,
-        "viewPath": "universitystudentlifecycle.view"
+        "async": true
       },
       "routes": [
         {
           "name": "Routestudent_lifecycle",
-          "pattern": ":?query:",
+          "pattern": "student",
           "target": [
             "Targetstudent_lifecycle"
           ]
         },
         {
+          "name": "RouteLoginPage",
+          "pattern": "",
+          "target": [
+            "TargetLoginPage"
+          ]
+        },
+        {
+          "pattern": "register",
+          "name": "register",
+          "target": ["TargetRegister"]
+        },{
           "name": "RouteStudentProfile",
           "pattern": "profile",
           "target": [
@@ -92,6 +103,14 @@
         "Targetstudent_lifecycle": {
           "id": "student_lifecycle",
           "name": "student_lifecycle"
+        },
+        "TargetLoginPage": {
+          "id": "login",
+          "name": "Login"
+        },
+        "TargetRegister": {
+          "id": "register",
+          "name": "Register"
         },
         "TargetStudentProfile": {
           "id": "StudentProfile",

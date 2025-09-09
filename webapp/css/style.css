@@ -1,48 +1,54 @@
-/* Only custom styles that are not available in SAP UI5 */
+/* Enter your custom styles here */
+.bigTitle {
+    font-size: 1.5rem;
+    /* increase/decrease until it matches */
+    font-weight: bold;
+    /* Only custom styles that are not available in SAP UI5 */
 
-/* Student Profile Avatar - Custom styling for profile photo */
-.studentProfileAvatar {
-    border: 3px solid var(--sapUiHighlight);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 124, 198, 0.2);
-}
-
-.studentProfileAvatar:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 124, 198, 0.4);
-}
-
-/* Photo upload area - Custom styling for drag and drop */
-.photoUploadArea {
-    border: 2px dashed var(--sapUiHighlight);
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    background-color: var(--sapUiBaseBG);
-    transition: all 0.3s ease;
-}
-
-.photoUploadArea:hover {
-    border-color: var(--sapUiHighlight);
-    background-color: var(--sapUiSelected);
-}
-
-/* Loading state - Custom class for busy state */
-.busyState {
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-/* Responsive adjustments for profile photo */
-@media (max-width: 600px) {
+    /* Student Profile Avatar - Custom styling for profile photo */
     .studentProfileAvatar {
-        width: 100px !important;
-        height: 100px !important;
+        border: 3px solid var(--sapUiHighlight);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 124, 198, 0.2);
     }
-    
+
+    .studentProfileAvatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 124, 198, 0.4);
+    }
+
+    /* Photo upload area - Custom styling for drag and drop */
     .photoUploadArea {
-        padding: 1rem;
+        border: 2px dashed var(--sapUiHighlight);
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        background-color: var(--sapUiBaseBG);
+        transition: all 0.3s ease;
+    }
+
+    .photoUploadArea:hover {
+        border-color: var(--sapUiHighlight);
+        background-color: var(--sapUiSelected);
+    }
+
+    /* Loading state - Custom class for busy state */
+    .busyState {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    /* Responsive adjustments for profile photo */
+    @media (max-width: 600px) {
+        .studentProfileAvatar {
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+        .photoUploadArea {
+            padding: 1rem;
+        }
     }
 }

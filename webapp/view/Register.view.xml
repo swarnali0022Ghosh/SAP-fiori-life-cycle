@@ -1,0 +1,374 @@
+<mvc:View
+    controllerName="universitystudentlifecycle.controller.Register"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:unified="sap.ui.unified"
+>
+    <Page
+        id="register"
+        title="{i18n>title}"
+        class="sapUiContentPadding"
+    >
+        <content>
+            <l:Grid
+                id="_IDGenGrid1"
+                defaultSpan="L6 M8 S12"
+                hSpacing="2"
+                vSpacing="2"
+                width="100%"
+                class="sapUiMediumMarginTop"
+            >
+                <!-- ================= Left: Form ================= -->
+                <l:content>
+                    <Panel
+                        id="formPanel"
+                        headerText="Student Registration"
+                        class="sapUiResponsiveMargin"
+                        width="auto"
+                        expandable="false"
+                    >
+                        <content>
+                            <form:Form
+                                id="registrationForm"
+                                editable="true"
+                                class="sapUiMediumMargin"
+                            >
+                                <form:layout>
+                                    <form:ResponsiveGridLayout 
+                                        id="_IDGenResponsiveGridLayout"
+                                        labelSpanXL="0"
+                                        labelSpanL="0"
+                                        labelSpanM="0"
+                                        labelSpanS="0"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="2"
+                                        columnsL="2"
+                                        columnsM="1"
+                                        singleContainerFullSize="false"
+                                    />
+                                </form:layout>
+                                
+                                <form:formContainers>
+                                    <!-- Personal Info Container -->
+                                    <form:FormContainer id="personalInfoContainer">
+                                        <form:title>
+                                            <core:Title 
+                                                id="_IDGenTitle1"
+                                                text="Personal Information"
+                                                level="H2"
+                                                class="sapUiMediumMarginBottom"
+                                            />
+                                        </form:title>
+                                        
+                                        <form:formElements>
+                                            <!-- First Name -->
+                                            <form:FormElement id="_IDGenFormElement1">
+                                                <form:fields>
+                                                    <Input
+                                                        id="firstName"
+                                                        placeholder="First Name *"
+                                                        required="true"
+                                                        valueState="None"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Last Name -->
+                                            <form:FormElement id="_IDGenFormElement2">
+                                                <form:fields>
+                                                    <Input
+                                                        id="lastName"
+                                                        placeholder="Last Name *"
+                                                        required="true"
+                                                        valueState="None"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Date of Birth -->
+                                            <form:FormElement id="_IDGenFormElement3">
+                                                <form:fields>
+                                                    <DatePicker
+                                                        id="dob"
+                                                        placeholder="Date of Birth"
+                                                        displayFormat="dd/MM/yyyy"
+                                                        valueFormat="yyyy-MM-dd"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Gender -->
+                                            <form:FormElement id="_IDGenFormElement4">
+                                                <form:fields>
+                                                    <ComboBox
+                                                        id="gender"
+                                                        placeholder="Select Gender"
+                                                        width="100%"
+                                                        class="sapUiTinyMarginBottom"
+                                                    >
+                                                        <items>
+                                                            <core:Item id="_IDGenItem" key="Male" text="Male" />
+                                                            <core:Item id="_IDGenItem1" key="Female" text="Female" />
+                                                            <core:Item id="_IDGenItem2" key="Other" text="Other" />
+                                                            <core:Item id="_IDGenItem3" key="PreferNotToSay" text="Prefer not to say" />
+                                                        </items>
+                                                    </ComboBox>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+
+                                    <!-- Contact Info Container -->
+                                    <form:FormContainer id="contactInfoContainer">
+                                        <form:title>
+                                            <core:Title 
+                                                id="_IDGenTitle2"
+                                                text="Contact Information"
+                                                level="H3"
+                                                class="sapUiMediumMarginTop sapUiSmallMarginBottom"
+                                            />
+                                        </form:title>
+                                        
+                                        <form:formElements>
+                                            <!-- Email (full width) -->
+                                            <form:FormElement id="_IDGenFormElement13">
+                                                <form:fields>
+                                                    <Input
+                                                        id="email"
+                                                        placeholder="Email Address *"
+                                                        type="Email"
+                                                        required="true"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Phone -->
+                                            <form:FormElement id="_IDGenFormElement8">
+                                                <form:fields>
+                                                    <Input
+                                                        id="phone"
+                                                        placeholder="Phone Number"
+                                                        type="Tel"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Country -->
+                                            <form:FormElement id="_IDGenFormElement7">
+                                                <form:fields>
+                                                    <Input
+                                                        id="country"
+                                                        placeholder="Country"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Street -->
+                                            <form:FormElement id="_IDGenFormElement9">
+                                                <form:fields>
+                                                    <Input
+                                                        id="street"
+                                                        placeholder="Street Address"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- City -->
+                                            <form:FormElement id="_IDGenFormElement10">
+                                                <form:fields>
+                                                    <Input
+                                                        id="city"
+                                                        placeholder="City"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- State -->
+                                            <form:FormElement id="_IDGenFormElement11">
+                                                <form:fields>
+                                                    <Input
+                                                        id="state"
+                                                        placeholder="State/Province"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Zip Code -->
+                                            <form:FormElement id="_IDGenFormElement12">
+                                                <form:fields>
+                                                    <Input
+                                                        id="zipCode"
+                                                        placeholder="ZIP/Postal Code"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+
+                                    <!-- Emergency Contact Container -->
+                                    <form:FormContainer id="emergencyContactContainer">
+                                        <form:title>
+                                            <core:Title 
+                                                id="_IDGenTitle3"
+                                                text="Emergency Contact"
+                                                level="H3"
+                                                class="sapUiMediumMarginTop sapUiSmallMarginBottom"
+                                            />
+                                        </form:title>
+                                        
+                                        <form:formElements>
+                                            <!-- Emergency Name -->
+                                            <form:FormElement id="_IDGenFormElement14">
+                                                <form:fields>
+                                                    <Input
+                                                        id="emergencyName"
+                                                        placeholder="Emergency Contact Name"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Relation -->
+                                            <form:FormElement id="_IDGenFormElement15">
+                                                <form:fields>
+                                                    <Input
+                                                        id="relation"
+                                                        placeholder="Relationship"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Emergency Phone -->
+                                            <form:FormElement id="_IDGenFormElement16">
+                                                <form:fields>
+                                                    <Input
+                                                        id="emergencyPhone"
+                                                        placeholder="Emergency Phone"
+                                                        type="Tel"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Emergency Email -->
+                                            <form:FormElement id="_IDGenFormElement17">
+                                                <form:fields>
+                                                    <Input
+                                                        id="emergencyEmail"
+                                                        placeholder="Emergency Email"
+                                                        type="Email"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+
+                                    <!-- Terms and Submit Container -->
+                                    <form:FormContainer id="submitContainer">
+                                        <form:formElements>
+                                            <!-- Terms -->
+                                            <form:FormElement id="_IDGenFormElement18">
+                                                <form:fields>
+                                                    <CheckBox
+                                                        id="terms"
+                                                        text="I have read and understood the Terms and Conditions"
+                                                        class="sapUiMediumMarginTop"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Submit Button -->
+                                            <form:FormElement id="_IDGenFormElement19">
+                                                <form:fields>
+                                                    <Button
+                                                        id="_IDGenButton1"
+                                                        text="Submit Registration"
+                                                        type="Emphasized"
+                                                        press=".onSubmit"
+                                                        width="200px"
+                                                        class="sapUiMediumMarginTop"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                            </form:Form>
+                        </content>
+                    </Panel>
+                </l:content>
+
+                <!-- ================= Right: Upload Section ================= -->
+                <l:content>
+                    <Panel
+                        id="_IDGenPanel"
+                        headerText="Document Upload"
+                        class="sapUiResponsiveMargin"
+                        width="auto"
+                        expandable="false"
+                    >
+                        <content>
+                            <VBox id="_IDGenVBox" class="sapUiMediumMargin">
+                                <VBox id="_IDGenVBox5" class="sapUiSmallMarginBottom">
+                                    <Label
+                                        id="_IDGenLabel2"
+                                        text="Government ID Documents"
+                                        class="sapUiSmallMarginBottom"
+                                    />
+                                    <unified:FileUploader
+                                        id="idDocsUpload"
+                                        name="idDocs"
+                                        tooltip="Select ID documents (PDF, Images - Max 2MB)"
+                                        fileType="pdf,jpg,jpeg,png"
+                                        maximumFileSize="2"
+                                        change="onFileChange"
+                                        typeMissmatch="onTypeMismatch"
+                                        fileSizeExceed="onFileSizeExceed"
+                                        width="100%"
+                                        uploadUrl="/upload"
+                                        buttonText="Browse..."
+                                    />
+                                </VBox>
+
+                                <MessageStrip
+                                    id="_IDGenMessageStrip"
+                                    text="Supported formats: PDF, JPG, PNG. Maximum file size: 2MB"
+                                    type="Information"
+                                    class="sapUiSmallMarginTop"
+                                />
+                                
+                                <!-- Additional helpful links -->
+                                <VBox id="_IDGenVBox6" class="sapUiMediumMarginTop">
+                                    <Link id="_IDGenLink2"
+                                        text="Already have an account? Login here"
+                                        press=".onLoginPress"
+                                        class="sapUiSmallMarginTop"
+                                    />
+                                </VBox>
+                            </VBox>
+                        </content>
+                    </Panel>
+                </l:content>
+            </l:Grid>
+        </content>
+    </Page>
+</mvc:View>
