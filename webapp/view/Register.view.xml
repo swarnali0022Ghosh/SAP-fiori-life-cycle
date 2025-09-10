@@ -128,6 +128,67 @@
                                         </form:formElements>
                                     </form:FormContainer>
 
+                                    <!-- Academic Information Container -->
+                                    <form:FormContainer id="academicInfoContainer">
+                                        <form:title>
+                                            <core:Title 
+                                                id="_IDGenTitle4"
+                                                text="Academic Information"
+                                                level="H3"
+                                                class="sapUiMediumMarginTop sapUiSmallMarginBottom"
+                                            />
+                                        </form:title>
+                                        
+                                        <form:formElements>
+                                            <!-- Enrollment ID -->
+                                            <form:FormElement id="_IDGenFormElement20">
+                                                <form:fields>
+                                                    <Input
+                                                        id="enrollmentId"
+                                                        placeholder="Enrollment ID"
+                                                        valueState="None"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Program -->
+                                            <form:FormElement id="_IDGenFormElement21">
+                                                <form:fields>
+                                                    <Input
+                                                        id="program"
+                                                        placeholder="Program/Course"
+                                                        valueState="None"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- Semester -->
+                                            <form:FormElement id="_IDGenFormElement22">
+                                                <form:fields>
+                                                    <Input
+                                                        id="semester"
+                                                        placeholder="Current Semester"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                            
+                                            <!-- GPA -->
+                                            <form:FormElement id="_IDGenFormElement23">
+                                                <form:fields>
+                                                    <Input
+                                                        id="gpa"
+                                                        placeholder="GPA (if applicable)"
+                                                        type="Number"
+                                                        class="sapUiTinyMarginBottom"
+                                                    />
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+
                                     <!-- Contact Info Container -->
                                     <form:FormContainer id="contactInfoContainer">
                                         <form:title>
@@ -158,8 +219,9 @@
                                                 <form:fields>
                                                     <Input
                                                         id="phone"
-                                                        placeholder="Phone Number"
+                                                        placeholder="Phone Number *"
                                                         type="Tel"
+                                                        required="true"
                                                         class="sapUiTinyMarginBottom"
                                                     />
                                                 </form:fields>
@@ -290,7 +352,8 @@
                                                 <form:fields>
                                                     <CheckBox
                                                         id="terms"
-                                                        text="I have read and understood the Terms and Conditions"
+                                                        text="I have read and understood the Terms and Conditions *"
+                                                        required="true"
                                                         class="sapUiMediumMarginTop"
                                                     />
                                                 </form:fields>
@@ -328,11 +391,43 @@
                     >
                         <content>
                             <VBox id="_IDGenVBox" class="sapUiMediumMargin">
-                                <VBox id="_IDGenVBox5" class="sapUiSmallMarginBottom">
+                                
+                                <!-- Profile Photo Section -->
+                                <VBox id="_IDGenVBox7" class="sapUiSmallMarginBottom">
+                                    <Label
+                                        id="_IDGenLabel3"
+                                        text="Profile Photo (Optional)"
+                                        class="sapUiSmallMarginBottom"
+                                    />
+                                    <unified:FileUploader
+                                        id="profilePhotoUpload"
+                                        name="profilePhoto"
+                                        tooltip="Upload your profile photo (JPG, PNG - Max 2MB)"
+                                        fileType="jpg,jpeg,png"
+                                        maximumFileSize="2"
+                                        change="onFileChange"
+                                        typeMissmatch="onTypeMismatch"
+                                        fileSizeExceed="onFileSizeExceed"
+                                        width="100%"
+                                        uploadUrl="/upload"
+                                        buttonText="Choose Photo..."
+                                        placeholder="No photo selected"
+                                    />
+                                    <Text
+                                        id="_IDGenText1"
+                                        text="Recommended: Clear headshot, professional appearance"
+                                        class="sapUiTinyMarginTop"
+                                        wrapping="true"
+                                    />
+                                </VBox>
+
+                                <!-- Government ID Documents Section -->
+                                <VBox id="_IDGenVBox5" class="sapUiSmallMarginBottom sapUiMediumMarginTop">
                                     <Label
                                         id="_IDGenLabel2"
-                                        text="Government ID Documents"
+                                        text="Government ID Documents *"
                                         class="sapUiSmallMarginBottom"
+                                        required="true"
                                     />
                                     <unified:FileUploader
                                         id="idDocsUpload"
@@ -345,16 +440,61 @@
                                         fileSizeExceed="onFileSizeExceed"
                                         width="100%"
                                         uploadUrl="/upload"
-                                        buttonText="Browse..."
+                                        buttonText="Choose ID Document..."
+                                        placeholder="No document selected"
+                                    />
+                                    <Text
+                                        id="_IDGenText2"
+                                        text="REQUIRED: Upload passport, driver's license, or national ID card"
+                                        class="sapUiTinyMarginTop"
+                                        wrapping="true"
                                     />
                                 </VBox>
 
+                                <!-- Academic Documents Section -->
+                                <VBox id="_IDGenVBox8" class="sapUiSmallMarginBottom sapUiMediumMarginTop">
+                                    <Label
+                                        id="_IDGenLabel4"
+                                        text="Academic Documents (Optional)"
+                                        class="sapUiSmallMarginBottom"
+                                    />
+                                    <unified:FileUploader
+                                        id="academicDocsUpload"
+                                        name="academicDocs"
+                                        tooltip="Upload transcripts, certificates (PDF, Images - Max 5MB)"
+                                        fileType="pdf,jpg,jpeg,png"
+                                        maximumFileSize="5"
+                                        change="onFileChange"
+                                        typeMissmatch="onTypeMismatch"
+                                        fileSizeExceed="onFileSizeExceed"
+                                        width="100%"
+                                        uploadUrl="/upload"
+                                        buttonText="Choose Academic Documents..."
+                                        placeholder="No documents selected"
+                                    />
+                                    <Text
+                                        id="_IDGenText3"
+                                        text="Optional: Previous transcripts, diplomas, or certificates"
+                                        class="sapUiTinyMarginTop"
+                                        wrapping="true"
+                                    />
+                                </VBox>
+
+                                <!-- File Upload Instructions -->
                                 <MessageStrip
                                     id="_IDGenMessageStrip"
-                                    text="Supported formats: PDF, JPG, PNG. Maximum file size: 2MB"
+                                    text="Supported formats: PDF, JPG, PNG. ID documents required for registration."
                                     type="Information"
                                     class="sapUiSmallMarginTop"
                                 />
+                                
+                                <!-- Upload Status Display -->
+                                <VBox id="uploadStatusBox" visible="false" class="sapUiMediumMarginTop">
+                                    <Label id="uploadStatusLabel" text="Uploaded Files:" class="sapUiSmallMarginBottom"/>
+                                    <List id="uploadedFilesList" mode="None">
+                                        <!-- Dynamically populated with uploaded files -->
+                                    </List>
+                                </VBox>
                                 
                                 <!-- Additional helpful links -->
                                 <VBox id="_IDGenVBox6" class="sapUiMediumMarginTop">
