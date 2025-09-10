@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Toolbar>
+        <Title text="University Lifecycle"/>
+        <ToolbarSpacer/>
+        <Button text="Catalog" press="onNavCatalog"/>
+        <Button text="Enrollments" press="onNavEnrollments"/>
+        <Button text="Profile" press="onNavProfile"/>
+        <Button text="Admin" press="onNavAdmin" visible="{= ${auth>/user/role} === 'admin' }"/>
+        <ToolbarSeparator/>
+        <Text text="{= ${auth>/isAuthenticated} ? ${auth>/user/username} : 'Guest' }"/>
+        <Button text="{= ${auth>/isAuthenticated} ? 'Logout' : 'Login' }" press="onAuthAction"/>
+    </Toolbar>
+</core:FragmentDefinition>
+

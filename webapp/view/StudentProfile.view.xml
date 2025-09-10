@@ -13,20 +13,29 @@
           showNavButton="true" 
           navButtonPress="onNavBack"
           enableScrolling="true">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <core:Fragment fragmentName="universitystudentlifecycle.view.fragment.GlobalHeader" type="XML"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button id="editButton" 
+                            text="{= ${viewModel>/editMode} ? 'Cancel' : 'Edit'}" 
+                            type="{= ${viewModel>/editMode} ? 'Reject' : 'Emphasized'}"
+                            press="onToggleEditMode" 
+                            visible="{= !${viewModel>/isSaving}}"/>
+                    <Button id="saveButton" 
+                            text="Save" 
+                            type="Accept" 
+                            press="onSaveProfile" 
+                            visible="{viewModel>/editMode}"
+                            enabled="{= !${viewModel>/isSaving}}"/>
+                </contentRight>
+            </Bar>
+
+        </customHeader>
         
-        <headerContent>
-            <Button id="editButton" 
-                    text="{= ${viewModel>/editMode} ? 'Cancel' : 'Edit'}" 
-                    type="{= ${viewModel>/editMode} ? 'Reject' : 'Emphasized'}"
-                    press="onToggleEditMode" 
-                    visible="{= !${viewModel>/isSaving}}"/>
-            <Button id="saveButton" 
-                    text="Save" 
-                    type="Accept" 
-                    press="onSaveProfile" 
-                    visible="{viewModel>/editMode}"
-                    enabled="{= !${viewModel>/isSaving}}"/>
-        </headerContent>
+        
         
         <content>
             <ScrollContainer height="100%" width="100%" vertical="true" horizontal="false" class="sapUiResponsiveContentPadding">
