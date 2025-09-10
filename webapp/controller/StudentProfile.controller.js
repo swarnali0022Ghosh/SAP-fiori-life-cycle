@@ -410,5 +410,35 @@ sap.ui.define([
                 }
             }
         }
+        ,
+          onAuthAction: function () {
+            var oComponent = this.getOwnerComponent();
+            var oAuthModel = oComponent.getModel("auth");
+            var oAuth = oAuthModel.getData();
+
+            if (oAuth && oAuth.isAuthenticated) {
+                this._logout();
+            } else {
+                oComponent.getRouter().navTo("RouteLoginPage");
+            }
+        },
+
+        _logout: function () {
+            localStorage.removeItem("currentUserSession");
+            localStorage.removeItem("currentAdminProfile");
+            localStorage.removeItem("currentStudentProfile");
+            localStorage.removeItem("authData");
+
+            var oAuthModel = this.getOwnerComponent().getModel("auth");
+            oAuthModel.setData({
+                isAuthenticated: false,
+                user: null
+            });
+
+            MessageToast.show("Logged out successfully");
+            this.getOwnerComponent().getRouter().navTo("RouteLoginPage");
+        }
+
+        
     });
 });

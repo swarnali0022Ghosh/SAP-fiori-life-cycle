@@ -1,14 +1,14 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Toolbar>
-        <Title text="University Lifecycle"/>
-        <ToolbarSpacer/>
-        <Button text="Catalog" press="onNavCatalog"/>
-        <Button text="Enrollments" press="onNavEnrollments"/>
-        <Button text="Profile" press="onNavProfile"/>
-        <Button text="Admin" press="onNavAdmin" visible="{= ${auth>/user/role} === 'admin' }"/>
-        <ToolbarSeparator/>
-        <Text text="{= ${auth>/isAuthenticated} ? ${auth>/user/username} : 'Guest' }"/>
-        <Button text="{= ${auth>/isAuthenticated} ? 'Logout' : 'Login' }" press="onAuthAction"/>
+    <Toolbar id="_IDGenToolbar1">
+        <Title id="_IDGenTitle5" text="University Lifecycle"/>
+        <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+        <Button id="_IDGenButton2" text="Catalog" press="onNavCatalog"/>
+        <Button id="_IDGenButton3" text="Enrollments" press="onNavEnrollments"/>
+        <Button id="_IDGenButton4" text="Profile" press="onNavProfile"/>
+        <Button id="_IDGenButton5" text="Admin" press="onNavAdmin" visible="{= ${auth>/user/role} === 'admin' }"/>
+        <ToolbarSeparator id="_IDGenToolbarSeparator"/>
+        <Text id="_IDGenText4" text="{= ${auth>/isAuthenticated} ? ${auth>/user/username} : 'Guest' }"/>
+        <Button id="_IDGenButton6" text="{= ${auth>/isAuthenticated} ? 'Logout' : 'Login' }" press="onAuthAction"/>
     </Toolbar>
 </core:FragmentDefinition>
 

@@ -230,9 +230,7 @@ sap.ui.define([
             if (!studentProfile.personalInfo.firstName || 
                 !studentProfile.personalInfo.lastName || 
                 !studentProfile.contactInfo.email || 
-                !studentProfile.contactInfo.phoneNumber ||
-                !studentProfile.personalInfo.enrollmentId ||
-                !studentProfile.personalInfo.program) {
+                !studentProfile.contactInfo.phoneNumber) {
                 return false;
             }
             
