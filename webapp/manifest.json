@@ -97,6 +97,30 @@
           "target": [
             "TargetStudentProfile"
           ]
+        },{
+          "name": "RouteCourseCatalog",
+          "pattern": "courses",
+          "target": [
+            "TargetCourseCatalog"
+          ]
+        },{
+          "name": "RouteCourseDetails",
+          "pattern": "courses/{courseId}",
+          "target": [
+            "TargetCourseDetails"
+          ]
+        },{
+          "name": "RouteEnrollmentStatus",
+          "pattern": "enrollments",
+          "target": [
+            "TargetEnrollmentStatus"
+          ]
+        },{
+          "name": "RouteAdmin",
+          "pattern": "admin",
+          "target": [
+            "TargetAdmin"
+          ]
         }
       ],
       "targets": {
@@ -115,6 +139,22 @@
         "TargetStudentProfile": {
           "id": "StudentProfile",
           "name": "StudentProfile"
+        },
+        "TargetCourseCatalog": {
+          "id": "CourseCatalog",
+          "name": "CourseCatalog"
+        },
+        "TargetCourseDetails": {
+          "id": "CourseDetails",
+          "name": "CourseDetails"
+        },
+        "TargetEnrollmentStatus": {
+          "id": "EnrollmentStatus",
+          "name": "EnrollmentStatus"
+        },
+        "TargetAdmin": {
+          "id": "Admin",
+          "name": "Admin"
         }
       }
     },

@@ -3,6 +3,19 @@
     xmlns="sap.m"
     xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
+        <subHeader>
+            <Toolbar>
+                <Title text="Navigation"/>
+                <ToolbarSpacer/>
+                <Button text="Catalog" press="onNavCatalog"/>
+                <Button text="Enrollments" press="onNavEnrollments"/>
+                <Button text="Profile" press="onNavigateToProfile"/>
+                <Button text="Admin" press="onNavAdmin" visible="{= ${auth>/user/role} === 'admin' }"/>
+                <ToolbarSeparator/>
+                <Text text="{= ${auth>/isAuthenticated} ? ${auth>/user/username} : 'Guest' }"/>
+                <Button text="{= ${auth>/isAuthenticated} ? 'Logout' : 'Login' }" press="onAuthAction"/>
+            </Toolbar>
+        </subHeader>
         <headerContent>
             <Button text="Student Profile" 
                     type="Emphasized" 

@@ -22,6 +22,11 @@ sap.ui.define([
             // set the student profile model
             this.setModel(models.createStudentProfileModel(), "studentProfile");
 
+            // set auth, courses, and enrollments models
+            this.setModel(models.createAuthModel(), "auth");
+            this.setModel(models.createCoursesModel(), "courses");
+            this.setModel(models.createEnrollmentsModel(), "enrollments");
+
             // enable routing
             this.getRouter().initialize();
         }
