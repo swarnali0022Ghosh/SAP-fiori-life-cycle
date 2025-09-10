@@ -1,0 +1,34 @@
+<mvc:View controllerName="universitystudentlifecycle.controller.CourseDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Course Details">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <core:Fragment fragmentName="universitystudentlifecycle.view.fragment.GlobalHeader" type="XML"/>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Title text="{courses>title}" level="H2"/>
+                <Text text="ID: {courses>id}"/>
+                <Text text="Department: {courses>department}"/>
+                <Text text="Credits: {courses>credits}"/>
+                <Text text="Schedule: {courses>schedule}"/>
+                <Title text="Syllabus" level="H3" class="sapUiSmallMarginTop"/>
+                <Text text="{courses>syllabus}"/>
+                <Title text="Prerequisites" level="H3" class="sapUiSmallMarginTop"/>
+                <Text text="{= ${courses>prerequisites}.length ? ${courses>prerequisites}.join(', ') : 'None' }"/>
+                <Title text="Fee" level="H3" class="sapUiSmallMarginTop"/>
+                <ObjectNumber number="{courses>fee}" unit="USD"/>
+                <HBox class="sapUiSmallMarginTop">
+                    <Button text="Enroll" type="Emphasized" press="onEnroll" enabled="{auth>/isAuthenticated}"/>
+                    <Text text="Login required to enroll" visible="{= !${auth>/isAuthenticated} }" class="sapUiSmallMarginBegin"/>
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
+

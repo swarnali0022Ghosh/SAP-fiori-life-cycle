@@ -1,0 +1,55 @@
+<mvc:View controllerName="universitystudentlifecycle.controller.Admin"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Admin - Course Management">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <core:Fragment fragmentName="universitystudentlifecycle.view.fragment.GlobalHeader" type="XML"/>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Toolbar>
+                <Button text="Add Course" type="Emphasized" press="onAdd"/>
+            </Toolbar>
+        </subHeader>
+        <content>
+            <List id="adminCourseList" items="{courses>/courses}">
+                <CustomListItem>
+                    <HBox justifyContent="SpaceBetween" width="100%" class="sapUiSmallMargin">
+                        <VBox>
+                            <ObjectIdentifier title="{courses>title}" text="{courses>id}"/>
+                            <Text text="Dept: {courses>department} | Credits: {courses>credits} | Fee: {courses>fee}"/>
+                        </VBox>
+                        <HBox>
+                            <Button text="Edit" press="onEdit"/>
+                            <Button text="Delete" type="Negative" press="onDelete"/>
+                        </HBox>
+                    </HBox>
+                </CustomListItem>
+            </List>
+
+            <Toolbar class="sapUiSmallMarginTop">
+                <Title text="Pending Enrollments" level="H3"/>
+            </Toolbar>
+            <List id="reqList" items="{enrollments>/enrollments}">
+                <CustomListItem>
+                    <HBox justifyContent="SpaceBetween" width="100%" class="sapUiSmallMargin">
+                        <VBox>
+                            <ObjectIdentifier title="{enrollments>courseId}" text="{enrollments>id}"/>
+                            <Text text="User: {enrollments>username}"/>
+                            <Text text="Status: {enrollments>status}"/>
+                        </VBox>
+                        <HBox>
+                            <Button text="Approve" type="Accept" press="onApprove"/>
+                            <Button text="Reject" type="Reject" press="onReject"/>
+                        </HBox>
+                    </HBox>
+                </CustomListItem>
+            </List>
+        </content>
+    </Page>
+</mvc:View>
+

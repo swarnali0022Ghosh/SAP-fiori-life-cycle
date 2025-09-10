@@ -1,0 +1,37 @@
+<mvc:View controllerName="universitystudentlifecycle.controller.CourseCatalog"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="Course Catalog">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <core:Fragment fragmentName="universitystudentlifecycle.view.fragment.GlobalHeader" type="XML"/>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <subHeader>
+            <Toolbar>
+                <SearchField width="20rem" liveChange="onSearch" placeholder="Search courses"/>
+                <ToolbarSpacer/>
+                <Select width="12rem" change="onFilterDepartment">
+                    <items>
+                        <core:Item key="" text="All Departments"/>
+                        <core:Item key="CS" text="CS"/>
+                        <core:Item key="Math" text="Math"/>
+                    </items>
+                </Select>
+            </Toolbar>
+        </subHeader>
+        <content>
+            <List id="courseList" items="{courses>/courses}" mode="SingleSelectMaster" selectionChange="onSelectCourse">
+                <StandardListItem
+                    title="{courses>title}"
+                    description="{courses>id} • {courses>department} • {courses>credits} credits"
+                    info="{courses>schedule}"
+                    type="Active" />
+            </List>
+        </content>
+    </Page>
+</mvc:View>
+

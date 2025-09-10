@@ -1,0 +1,29 @@
+<mvc:View controllerName="universitystudentlifecycle.controller.EnrollmentStatus"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page title="My Enrollments">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <core:Fragment fragmentName="universitystudentlifecycle.view.fragment.GlobalHeader" type="XML"/>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <content>
+            <List id="enrollList" items="{path: 'enrollments>/enrollments'}">
+                <CustomListItem>
+                    <HBox justifyContent="SpaceBetween" width="100%" class="sapUiSmallMargin">
+                        <VBox>
+                            <ObjectIdentifier title="{enrollments>courseId}" text="{enrollments>id}"/>
+                            <Text text="Status: {enrollments>status}"/>
+                            <Text text="Requested: {enrollments>requestedAt}"/>
+                        </VBox>
+                        <Button text="Cancel" type="Reject" press="onCancel"/>
+                    </HBox>
+                </CustomListItem>
+            </List>
+        </content>
+    </Page>
+</mvc:View>
+
