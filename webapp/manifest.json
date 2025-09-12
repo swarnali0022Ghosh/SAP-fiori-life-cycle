@@ -52,6 +52,16 @@
         "settings": {
           "bundleName": "universitystudentlifecycle.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
       }
     },
     "resources": {
@@ -90,32 +100,39 @@
         {
           "pattern": "register",
           "name": "register",
-          "target": ["TargetRegister"]
-        },{
+          "target": [
+            "TargetRegister"
+          ]
+        },
+        {
           "name": "RouteStudentProfile",
           "pattern": "profile",
           "target": [
             "TargetStudentProfile"
           ]
-        },{
+        },
+        {
           "name": "RouteCourseCatalog",
           "pattern": "courses",
           "target": [
             "TargetCourseCatalog"
           ]
-        },{
+        },
+        {
           "name": "RouteCourseDetails",
           "pattern": "courses/{courseId}",
           "target": [
             "TargetCourseDetails"
           ]
-        },{
+        },
+        {
           "name": "RouteEnrollmentStatus",
           "pattern": "enrollments",
           "target": [
             "TargetEnrollmentStatus"
           ]
-        },{
+        },
+        {
           "name": "RouteAdmin",
           "pattern": "admin",
           "target": [

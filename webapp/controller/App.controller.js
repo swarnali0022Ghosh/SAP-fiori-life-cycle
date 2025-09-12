@@ -5,7 +5,34 @@ sap.ui.define([
   "use strict";
 
   return BaseController.extend("universitystudentlifecycle.controller.App", {
-    onInit() {
+    onInit: function () {
+      this.oModel = this.getOwnerComponent().getModel();
+
+      // Test OData connection
+      // console.log("OData Model:", this.oModel);
+  var sServiceUrl = "https://odata.sumandey.com/odata/v4/StudentService/Students"; 
+
+    $.ajax({
+        url: sServiceUrl,
+        method: "GET",
+        dataType: "json",
+        headers: {
+            "Accept": "application/json;odata.metadata=minimal"  
+            // or "application/json;odata.metadata=full", etc.
+        },
+        success: function(oData, textStatus, jqXHR) {
+            console.log("Success! Data:", oData);
+            // do something with the data
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error fetching OData:", textStatus, errorThrown);
+        }
+    });
+    //   this.oModel.getMetaModel().loaded().then(function () {
+    //     console.log("OData metadata loaded successfully");
+    //   }).catch(function (oError) {
+    //     console.error("OData connection failed:", oError);
+    //   });
     },
 
     onNavCatalog: function () {

@@ -128,67 +128,6 @@
                                         </form:formElements>
                                     </form:FormContainer>
 
-                                    <!-- Academic Information Container -->
-                                    <form:FormContainer id="academicInfoContainer">
-                                        <form:title>
-                                            <core:Title 
-                                                id="_IDGenTitle4"
-                                                text="Academic Information"
-                                                level="H3"
-                                                class="sapUiMediumMarginTop sapUiSmallMarginBottom"
-                                            />
-                                        </form:title>
-                                        
-                                        <form:formElements>
-                                            <!-- Enrollment ID -->
-                                            <form:FormElement id="_IDGenFormElement20">
-                                                <form:fields>
-                                                    <Input
-                                                        id="enrollmentId"
-                                                        placeholder="Enrollment ID"
-                                                        valueState="None"
-                                                        class="sapUiTinyMarginBottom"
-                                                    />
-                                                </form:fields>
-                                            </form:FormElement>
-                                            
-                                            <!-- Program -->
-                                            <form:FormElement id="_IDGenFormElement21">
-                                                <form:fields>
-                                                    <Input
-                                                        id="program"
-                                                        placeholder="Program/Course"
-                                                        valueState="None"
-                                                        class="sapUiTinyMarginBottom"
-                                                    />
-                                                </form:fields>
-                                            </form:FormElement>
-                                            
-                                            <!-- Semester -->
-                                            <form:FormElement id="_IDGenFormElement22">
-                                                <form:fields>
-                                                    <Input
-                                                        id="semester"
-                                                        placeholder="Current Semester"
-                                                        class="sapUiTinyMarginBottom"
-                                                    />
-                                                </form:fields>
-                                            </form:FormElement>
-                                            
-                                            <!-- GPA -->
-                                            <form:FormElement id="_IDGenFormElement23">
-                                                <form:fields>
-                                                    <Input
-                                                        id="gpa"
-                                                        placeholder="GPA (if applicable)"
-                                                        type="Number"
-                                                        class="sapUiTinyMarginBottom"
-                                                    />
-                                                </form:fields>
-                                            </form:FormElement>
-                                        </form:formElements>
-                                    </form:FormContainer>
-
                                     <!-- Contact Info Container -->
                                     <form:FormContainer id="contactInfoContainer">
                                         <form:title>
@@ -451,34 +390,7 @@
                                     />
                                 </VBox>
 
-                                <!-- Academic Documents Section -->
-                                <VBox id="_IDGenVBox8" class="sapUiSmallMarginBottom sapUiMediumMarginTop">
-                                    <Label
-                                        id="_IDGenLabel4"
-                                        text="Academic Documents (Optional)"
-                                        class="sapUiSmallMarginBottom"
-                                    />
-                                    <unified:FileUploader
-                                        id="academicDocsUpload"
-                                        name="academicDocs"
-                                        tooltip="Upload transcripts, certificates (PDF, Images - Max 5MB)"
-                                        fileType="pdf,jpg,jpeg,png"
-                                        maximumFileSize="5"
-                                        change="onFileChange"
-                                        typeMissmatch="onTypeMismatch"
-                                        fileSizeExceed="onFileSizeExceed"
-                                        width="100%"
-                                        uploadUrl="/upload"
-                                        buttonText="Choose Academic Documents..."
-                                        placeholder="No documents selected"
-                                    />
-                                    <Text
-                                        id="_IDGenText3"
-                                        text="Optional: Previous transcripts, diplomas, or certificates"
-                                        class="sapUiTinyMarginTop"
-                                        wrapping="true"
-                                    />
-                                </VBox>
+
 
                                 <!-- File Upload Instructions -->
                                 <MessageStrip
